@@ -25,8 +25,8 @@ jobs:
       - name: 🧪 Deploy staging
         run: |
           cd $GITHUB_WORKSPACE
-          docker-compose -f docker-compose.staging.yml down
-          docker-compose -f docker-compose.staging.yml up -d --build
+         sudo  docker-compose -f docker-compose.staging.yml down
+         sudo  docker-compose -f docker-compose.staging.yml up -d --build
           echo "✅ Staging live at localhost:3040"
 
   deploy-production:
@@ -42,3 +42,11 @@ jobs:
           docker-compose down
           docker-compose up -d --build
           echo "✅ Production live at localhost:3039"
+      - name: 🔍 Health Check
+        run: |
+          sleep 10
+          curl -f http://localhost:3039 && echo "✅ Site is healthy!" || echo "❌ Site is down!"
+
+      - name: 📊 Show container logs
+        run: |
+          sudo docker-compose logs --tail=50
