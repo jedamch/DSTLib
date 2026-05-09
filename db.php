@@ -1,6 +1,6 @@
 <?php
 
-$servername = "localhost";
+$servername = "db";
 $username = "ohmodmin";
 $DBpassword = "test1234";
 $db = "DSTLib";

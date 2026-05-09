@@ -1,0 +1,25 @@
+
+
+services:
+  web:
+    build: .
+    ports:
+      - "3039:80"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: test1234
+      MYSQL_DATABASE: DSTLib
+      MYSQL_USER: ohmodmin
+      MYSQL_PASSWORD: test1234
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
