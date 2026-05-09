@@ -1,4 +1,3 @@
-*.sql
 db_data/
 .env
 actions-runner/
