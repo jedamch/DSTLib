@@ -1,11 +1,9 @@
 name: 🚀 CI/CD Pipeline
-
 on:
   push:
     branches:
       - main
       - staging
-
 jobs:
   build:
     name: 🐳 Build & Test Docker Image
@@ -14,7 +12,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: 🐳 Build Docker image
         run: docker build -t dstlib-app .
-
   deploy-staging:
     name: 🧪 Deploy to Staging
     needs: build
@@ -25,10 +22,9 @@ jobs:
       - name: 🧪 Deploy staging
         run: |
           cd $GITHUB_WORKSPACE
-         sudo  docker-compose -f docker-compose.staging.yml down
-         sudo  docker-compose -f docker-compose.staging.yml up -d --build
+          sudo docker-compose -f docker-compose.staging.yml down
+          sudo docker-compose -f docker-compose.staging.yml up -d --build
           echo "✅ Staging live at localhost:3040"
-
   deploy-production:
     name: 🚀 Deploy to Production
     needs: build
@@ -39,14 +35,13 @@ jobs:
       - name: 🚀 Deploy production
         run: |
           cd $GITHUB_WORKSPACE
-          docker-compose down
-          docker-compose up -d --build
+          sudo docker-compose down
+          sudo docker-compose up -d --build
           echo "✅ Production live at localhost:3039"
       - name: 🔍 Health Check
         run: |
           sleep 10
           curl -f http://localhost:3039 && echo "✅ Site is healthy!" || echo "❌ Site is down!"
-
       - name: 📊 Show container logs
         run: |
           sudo docker-compose logs --tail=50
