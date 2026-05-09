@@ -3,7 +3,7 @@ services:
     build: .
     ports:
       - "3039:80"
-       deploy:
+    deploy:
       replicas: 2
       resources:
         limits:
@@ -26,7 +26,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
   db:
     image: mysql:8.0
     restart: unless-stopped
@@ -42,6 +41,5 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-
 volumes:
   db_data:
