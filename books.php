@@ -3,7 +3,7 @@
 include './db.php';
 session_start();
 
-/* Making sure that an actual book is picked.  */
+/* To make sure that an actual book is picked.  */
 
 if (empty($_GET['book'])) die("No book provided.");
 $slug = $_GET['book'];
