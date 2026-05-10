@@ -22,7 +22,7 @@ $book = $stmt->get_result()->fetch_assoc();
 
 if (!$book) die("Book not found.");
 
-/* Loading all reviews*/
+/* This is to load  all reviews*/
 $stmt = $conn->prepare("
     SELECT tbl_Reviews.ID, tbl_Reviews.Rating, tbl_Reviews.Review_Body, tbl_Reviews.Created_At,
            tbl_Users.User_Name, tbl_Users.Avatar
