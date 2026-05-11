@@ -1,5 +1,7 @@
 <?php
 
+/* Information for the database. */
+
 $servername = "db";
 $username = "ohmodmin";
 $DBpassword = "test1234";
