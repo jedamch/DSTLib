@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="nav-right">
     <?php
-    if (isset($_SESSION["User_Name"])) {
+    if (isset($_SESSION["User_Name"])) { /* Check if user is logged in */
         $profilePic = $_SESSION['Avatar'] ?? 'default.png';
         echo "<a href='Members/profile.php?user=" . $_SESSION['User_Name'] . "' class='profile-link'>";
         echo "<img src='Members/Uploads/$profilePic' alt='Profile' class='profile-pic'>";
