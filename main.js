@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSearch();
 });
 
+/*for the report form. */
 function toggleReportForm(id) {
     const el = document.getElementById(id);
     if (el) {
