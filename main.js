@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateNotifCount, 30000);
     initSearch();
 });
-
+/* For the reports on the sites. */
 function toggleReportForm(id) {
     const el = document.getElementById(id);
     if (el) {
