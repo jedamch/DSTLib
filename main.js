@@ -89,8 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateNotifCount, 30000);
     initSearch();
 });
+<<<<<<< HEAD
 
 /*for the report form. */
+=======
+/* For the reports on the sites. */
+>>>>>>> 1d0b6641242bdf253b5d648a9f974c1e53055af2
 function toggleReportForm(id) {
     const el = document.getElementById(id);
     if (el) {
